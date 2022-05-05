@@ -1,0 +1,27 @@
+{
+  "cwd": "C:\\Users\\Utente\\Documents\\GitHub\\my-movies",
+  "type": [
+    "web",
+    "capacitor"
+  ],
+  "name": "My Movies",
+  "framework": "vue",
+  "template": "blank",
+  "bundler": "vite",
+  "cssPreProcessor": false,
+  "theming": {
+    "customColor": true,
+    "color": "#0f4783",
+    "darkTheme": true,
+    "iconFonts": true,
+    "fillBars": true
+  },
+  "customBuild": false,
+  "pkg": "it.webenterprises.mymovies",
+  "capacitor": {
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  }
+}
