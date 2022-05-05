@@ -1,18 +1,18 @@
 <template>
     
-    <f7-page name="settings" :page-content="true">
+    <f7-page name="settings" :page-content="false">
 
         <Navbar :showSearchButton="false" :backLink="false" />
-
-        <f7-block-title>{{ $t('message.settings.title') }}</f7-block-title>
-        <f7-list>
-            <f7-list-item :title="$t('message.settings.listTitle')" smart-select :smart-select-params="{openIn: 'popover'}">
-                <select name="language" v-model="language">
-                    <option v-for="(item, key) in supportedLanguages" :key="key" :value="item.lang" :selected="item.lang == this.language">{{item.name}}</option>
-                </select>
-            </f7-list-item>
-        </f7-list>
-
+        <f7-page-content>
+            <f7-block>{{ $t('message.settings.title') }}</f7-block>
+            <f7-list>
+                <f7-list-item :title="$t('message.settings.listTitle')" smart-select :smart-select-params="{openIn: 'popover'}">
+                    <select name="language" v-model="language">
+                        <option v-for="(item, key) in supportedLanguages" :key="key" :value="item.lang" :selected="item.lang == this.language">{{item.name}}</option>
+                    </select>
+                </f7-list-item>
+            </f7-list>
+        </f7-page-content>
     </f7-page>
 </template>
 

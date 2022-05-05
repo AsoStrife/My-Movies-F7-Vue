@@ -27,7 +27,9 @@ const en =  {
         myMoviesTab: {
             title: 'My movies', 
             emptyCollection: 'There are no films in your collection',
-            emptySearch: 'No results were found'
+            emptySearch: 'No results were found',
+            moviesSeen: 'Movies seen',
+            moviesOwned: 'Movies owned'
         }, 
         tmdbTab: {
             title: 'Search on TMDB',

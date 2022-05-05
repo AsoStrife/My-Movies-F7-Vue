@@ -27,7 +27,9 @@ const it =  {
         myMoviesTab: {
             title: 'I miei film', 
             emptyCollection: 'Non sono presenti film nella tua collezione',
-            emptySearch: 'La ricerca non ha prodotto alcun risultato'
+            emptySearch: 'La ricerca non ha prodotto alcun risultato',
+            moviesSeen: 'Film visti',
+            moviesOwned: 'Film posseduti'
         }, 
         tmdbTab: {
             title: 'Cerca su TMDB',

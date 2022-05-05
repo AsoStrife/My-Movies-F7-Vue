@@ -10,11 +10,18 @@
         </f7-col>
 
         <f7-block-title>{{$t('message.myMoviesTab.title')}}</f7-block-title>
+        
+        <f7-block>
+            <f7-row>
+                <f7-col><f7-card :title="$t('message.myMoviesTab.moviesSeen')" :content="moviesSeen"></f7-card></f7-col>
+                <f7-col><f7-card :title="$t('message.myMoviesTab.moviesOwned')" :content="moviesOwned"></f7-card></f7-col>
+            </f7-row>
+        </f7-block>
 
         <f7-block v-if="films.length == 0">
             <div class="alert bg-warning">
-                <span v-if="searchQuery === '' ">{{ $t('message.tmdbTab.emptyCollection') }}</span>
-                <span v-if="searchQuery !== ''">{{ $t('message.tmdbTab.emptySearch') }}</span>
+                <span v-if="searchQuery === '' ">{{ $t('message.myMoviesTab.emptyCollection') }}</span>
+                <span v-if="searchQuery !== ''">{{ $t('message.myMoviesTab.emptySearch') }}</span>
             </div>
         </f7-block>
 
@@ -51,7 +58,9 @@
                 searchQuery: "", 
                 allowInfinite: true,
                 showPreloader: false,
-                awaitingSearch: false
+                awaitingSearch: false,
+                moviesSeen: 0,
+                moviesOwned: 0
             }
         },
         methods: {
@@ -110,11 +119,91 @@
                 this.allowInfinite = true
                 this.showPreloader = false
                 this.awaitingSearch = false
+            },
+            async countOwnedMovies(){
+                let url = constants.backend.url + constants.backend.endpoints.films + '?'
+                
+                let query = qs.stringify(
+                {
+                    filters: {
+                        $or: [
+                            {
+                                bluray4k: {
+                                    $eq: true,
+                                },
+                            },
+                            {
+                                bluray: {
+                                    $eq: true,
+                                },
+                            },
+                            {
+                             dvd: {
+                                    $eq: true,
+                                },
+                            },
+                            {
+                                vhs: {
+                                    $eq: true,
+                                }
+                            }
+                        ]
+                    },
+                    pagination: {
+                        page: this.page,
+                        pageSize: 1
+                    },
+                    sort: ['title']
+                }, {
+                    encodeValuesOnly: true,
+                })
+                axios.get(url + query).then(response => {
+                    response = response.data
+
+                    this.moviesOwned = String(response.meta.pagination.total)
+                })
+                .catch((error) => {
+                    console.error('Error:', error)
+                    this.awaitingSearch = false
+                })
+            },
+            async countSeenMovies(){
+                let url = constants.backend.url + constants.backend.endpoints.films + '?'
+                
+                let query = qs.stringify(
+                {
+                    filters: {
+                        seen: {
+                            $eq: 1,
+                        },
+                    },
+                    pagination: {
+                        page: this.page,
+                        pageSize: 20
+                    },
+                    sort: ['title']
+                }, {
+                    encodeValuesOnly: true,
+                })
+
+
+                axios.get(url + query).then(response => {
+                    response = response.data
+
+                    this.moviesSeen = String(response.meta.pagination.total)
+                })
+                .catch((error) => {
+                    console.error('Error:', error)
+                    this.awaitingSearch = false
+                })
             }
         },
         mounted() {
             this.populate(false)
             
+            this.countOwnedMovies()
+            this.countSeenMovies()
+
             f7.on('searchNavbarUser', (searchQuery) => {
                 this.searchQuery = searchQuery
                 this.reset(false) 
