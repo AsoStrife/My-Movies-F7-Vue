@@ -110,6 +110,8 @@
             async refresh(done){
                 this.reset(true)
                 await this.populate()
+                await this.countOwnedMovies()
+                await this.countSeenMovies()
                 done()
             },
             reset(resetSearchQuery = false) {
