@@ -1,6 +1,6 @@
 # 🚀 My Movies
 
-<img src="https://raw.githubusercontent.com/AsoStrife/My-Movies-F7-Vue/feature/my-movies-vue/resources/demo-app.png" style="zoom:50%;" />
+<img src="https://github.com/AsoStrife/My-Movies-F7-Vue/blob/beee9870670716c96fb081cb5b7ff508fdf89152/resources/demo-app.png?raw=true" style="zoom:50%;" />
 
 This repository is a part of the **My Movies** App project. 
 

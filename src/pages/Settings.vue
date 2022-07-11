@@ -38,7 +38,6 @@
             
         },
         mounted() {
-            console.log(this.$i18n.locale)
             this.$watch(
                 (vm) => [vm.language],
                 (val) => {
