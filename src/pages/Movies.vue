@@ -5,7 +5,7 @@
         <Navbar :showSearchButton="false" :backLink="true" />
 
         <f7-page-content>
-            <img :data-src="this.constants.themoviedb.endpoints.images_w500 + this.film.backdrop_path" class="lazy lazy-fade-in img-fluid" :alt="film.title"/>
+            <img :src="this.constants.themoviedb.endpoints.images_w500 + this.film.backdrop_path" class="lazy lazy-fade-in img-fluid" :alt="film.title"/>
 
             <f7-block>
                 <h1>{{film.title}}</h1> <br> 
@@ -47,7 +47,6 @@
     import constants from '../js/constants';
     import { f7, f7ready } from 'framework7-vue';
     import axios from 'axios';
-    import Localbase from 'localbase';
 
     export default {
         name: 'Movies',
@@ -67,7 +66,6 @@
                 vhs: false,
                 seen: false,
                 apiUrl: constants.backend.url + constants.backend.endpoints.films + "/",
-                db: new Localbase('db'),
                 isLoading: false,
             }
         },
@@ -93,7 +91,7 @@
                     },
                     {
                         headers: {
-                            'Authorization': "Bearer " + this.user.jwt
+                            'Authorization': "Bearer " + this.constants.backend.apiToken
                         }
                     })
 
@@ -135,9 +133,7 @@
                 })
 
                 
-                
-                this.user = (await this.db.collection('users').get())[0]
-            })
+                })
 
             this.$watch(
                 (vm) => [vm.bluray, vm.bluray4k, vm.dvd, vm.vhs],

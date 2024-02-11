@@ -1,9 +1,9 @@
 <template>
     <f7-page infinite :infinite-distance="50" :infinite-preloader="showPreloader" @infinite="loadMore">
         
-        <f7-col class="preloader-row" v-if="awaitingSearch">
+        <f7-block class="preloader-row" v-if="awaitingSearch">
             <f7-preloader ></f7-preloader>
-        </f7-col>
+        </f7-block>
 
         <f7-block-title>{{$t('message.tmdbTab.title')}}</f7-block-title>
         
@@ -66,8 +66,8 @@
 
                 axios.get(url + query)
                 .then(response => {
-                    response = response.data
-                    this.films = push ? this.films.concat(response.results) : response.results
+                    response = response.data.results.filter(f => f.title != undefined)
+                    this.films = push ? this.films.concat(response) : response
                     
                     this.total_pages = response.total_pages
                     this.page = response.page

@@ -5,18 +5,20 @@
             <div class="ptr-arrow"></div>
         </div>
 
-        <f7-col class="preloader-row" v-if="awaitingSearch">
+        <f7-block class="preloader-row" v-if="awaitingSearch">
             <f7-preloader ></f7-preloader>
-        </f7-col>
+        </f7-block>
 
         <f7-block-title>{{$t('message.myMoviesTab.title')}}</f7-block-title>
         
-        <f7-block>
-            <f7-row>
-                <f7-col><f7-card :title="$t('message.myMoviesTab.moviesSeen')" :content="moviesSeen"></f7-card></f7-col>
-                <f7-col><f7-card :title="$t('message.myMoviesTab.moviesOwned')" :content="moviesOwned"></f7-card></f7-col>
-            </f7-row>
-        </f7-block>
+        <div class="grid grid-cols-2">
+            <div>
+                <f7-card :title="$t('message.myMoviesTab.moviesSeen')" :content="moviesSeen"></f7-card>
+            </div>
+            <div>
+                <f7-card :title="$t('message.myMoviesTab.moviesOwned')" :content="moviesOwned"></f7-card>
+            </div>
+        </div>
 
         <f7-block v-if="films.length == 0">
             <div class="alert bg-warning">

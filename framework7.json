@@ -1,8 +1,9 @@
 {
-  "cwd": "C:\\Users\\Utente\\Documents\\GitHub\\my-movies",
+  "cwd": "C:\\Users\\andre\\Documents\\GitHub\\Andrea Corriga\\My-Movies-F7-Vue",
   "type": [
     "web",
-    "capacitor"
+    "capacitor",
+    "pwa"
   ],
   "name": "My Movies",
   "framework": "vue",
@@ -12,12 +13,11 @@
   "theming": {
     "customColor": true,
     "color": "#0f4783",
-    "darkTheme": true,
-    "iconFonts": true,
-    "fillBars": true
+    "darkMode": false,
+    "iconFonts": true
   },
   "customBuild": false,
-  "pkg": "it.webenterprises.mymovies",
+  "pkg": "io.framework7.myapp",
   "capacitor": {
     "platforms": [
       "ios",

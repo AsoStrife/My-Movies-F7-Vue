@@ -28,7 +28,6 @@
 </template>
 
 <script>
-    import Localbase from 'localbase';
 
     import Navbar from '../components/Navbar.vue';
     import SearchMyMoviesVue from '../components/SearchMyMovies.vue';
@@ -37,7 +36,6 @@
     import { f7ready, f7 } from 'framework7-vue';
     import LampTabbar from '../components/LampTabbar/LampTabbar.js';
     import '../components/LampTabbar/LampTabbar.css';
-    import auth from '../js/auth';
     
     export default {
         name: 'Home',
@@ -48,8 +46,7 @@
         },
         data() {
             return {
-                event: "navbarSearchuser",
-                db: new Localbase('db')
+                event: "navbarSearchuser"
             }
         },
         methods: {
@@ -59,11 +56,7 @@
         },
         async mounted() {
             this.changeTriggerEvent('searchNavbarUser')
-
-            if(! await auth.isLogged())
-                f7.views.main.router.navigate('/login/')
-            
-            
+                        
             f7ready(() => {
                 LampTabbar(f7, '.my-tabbar')
             })

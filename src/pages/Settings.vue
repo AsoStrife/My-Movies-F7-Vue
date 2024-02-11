@@ -17,7 +17,6 @@
 </template>
 
 <script>
-    import Localbase from 'localbase';
     import constants from '../js/constants.js'
     import Navbar from '../components/Navbar.vue'
 
@@ -29,7 +28,6 @@
         data() {
             return {
                 event: "navbarSearchuser",
-                db: new Localbase('db'),
                 language: this.$i18n.locale, 
                 supportedLanguages: constants.app.supportedLanguages
             }
