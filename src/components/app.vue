@@ -48,7 +48,9 @@ export default {
             // Capacitor Statusbar settings
             statusbar: {
                 iosOverlaysWebView: true,
+                iosTextColor: 'white',
                 androidOverlaysWebView: false,
+                androidTextColor: 'white'
             },
         };
 
