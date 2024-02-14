@@ -2,17 +2,17 @@
     
     <f7-page name="home" :page-content="false">
     
-        <Navbar :showSearchButton="true" triggerEvent="searchNavbarUser" :backLink="false" classSearchbar="searchbarHome"/>
+        <Navbar :showSearchButton="true" triggerEvent="searchNavbarTMDB" :backLink="false" classSearchbar="searchbarTMDB"/>
 
-        <SearchMyMoviesVue />
-        
+        <SearchTMBDVue />
+
     </f7-page>
 </template>
 
 <script>
 
     import Navbar from '../components/Navbar.vue'
-    import SearchMyMoviesVue from '../components/SearchMyMovies.vue'
+    import SearchTMBDVue from '../components/SearchTMBD.vue'
 
     import { f7ready, f7 } from 'framework7-vue'
     
@@ -20,20 +20,15 @@
         name: 'Home',
         components: {
             Navbar,
-            SearchMyMoviesVue
+            SearchTMBDVue
         },
         data() {
             return {
-                event: "searchNavbarUser"
             }
         },
         methods: {
-            changeTriggerEvent(triggerEvent) {
-                this.event = triggerEvent
-            }
         },
         async mounted() {
-
         }
         
     }

@@ -39,6 +39,7 @@ const en =  {
         panelList: {
             home: 'Home',
             login: 'Signin',
+            searchtmdb: 'Search on TMBD',
             settings: 'Settings', 
             logout: 'Logout'
         },

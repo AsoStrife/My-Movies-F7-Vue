@@ -5,6 +5,7 @@
             <f7-page>
                 <f7-list>
                     <f7-list-item :title="$t('message.panelList.home')" link="/" panel-close></f7-list-item>
+                    <f7-list-item :title="$t('message.panelList.searchtmdb')" link="/searchtmdb/" panel-close></f7-list-item>
                     <f7-list-item :title="$t('message.panelList.settings')" link="/settings/" panel-close></f7-list-item>
                 </f7-list>
             </f7-page>

@@ -2,7 +2,7 @@
     
     <f7-page name="movies" :page-content="false">
 
-        <Navbar :showSearchButton="false" :backLink="true" />
+        <Navbar :showSearchButton="false" :backLink="false" />
 
         <f7-page-content>
             <img :src="this.constants.themoviedb.endpoints.images_w500 + this.film.backdrop_path" class="lazy lazy-fade-in img-fluid" :alt="film.title"/>
@@ -12,7 +12,7 @@
                 <h3>{{$t('message.movies.releaseDate')}}: {{film.release_date.split("-").reverse().join("-")}}</h3>
             </f7-block>
             
-            <f7-block>{{$t('message.movies.info')}}:</f7-block>
+            <!-- <f7-block>{{$t('message.movies.info')}}:</f7-block> -->
             <f7-list>
                 <f7-list-item checkbox title="Blu-Ray 4k" v-model:checked="bluray4k"></f7-list-item>
                 <f7-list-item checkbox title="Blu-Ray" v-model:checked="bluray"></f7-list-item>

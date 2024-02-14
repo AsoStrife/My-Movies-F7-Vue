@@ -7,7 +7,7 @@
         </f7-nav-left>
     
         <f7-searchbar
-            class="searchbar-demo"
+            :class="classSearchbar"
             expandable
             search-container=".search-list"
             search-in=".item-title"
@@ -26,7 +26,7 @@
             <f7-link 
             
                 class="searchbar-enable" 
-                data-searchbar=".searchbar-demo" 
+                :data-searchbar="'.' + classSearchbar" 
                 icon-ios="f7:search" 
                 icon-aurora="f7:search" 
                 icon-md="material:search" 
@@ -43,6 +43,7 @@
         name: "Navbar", 
         props: {
             showSearchButton: Boolean,
+            classSearchbar: '',
             triggerEvent: String,
             backLink: Boolean
         },
