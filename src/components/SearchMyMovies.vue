@@ -1,5 +1,5 @@
 <template>
-    <f7-page infinite :infinite-distance="50" :infinite-preloader="showPreloader" @infinite="loadMore" ptr @ptr:refresh="refresh">
+    <f7-page name="search-mymovies" :page-content="false" infinite :infinite-distance="50" :infinite-preloader="showPreloader" @infinite="loadMore" ptr @ptr:refresh="refresh">
         <div class="ptr-preloader">
             <div class="preloader"></div>
             <div class="ptr-arrow"></div>
